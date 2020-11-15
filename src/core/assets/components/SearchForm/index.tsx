@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import ButtonIcon from '../ButtonIcon';
 import './styles.scss';
 
 type Props = {
@@ -13,9 +15,9 @@ const SearchForm = ({title, children}: Props) => {
              {title}
          </h1>
          {children}
-         <button>
-             Encontrar
-         </button>
+         <Link to = "/search">
+            <ButtonIcon text="Encontrar"/>
+         </Link>
      </div>
  )
 }
