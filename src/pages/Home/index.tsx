@@ -23,7 +23,7 @@ const Home = () => (
                 <br/>
                 </p>
                 <Link to = "/search">
-                    <ButtonIcon text="  Começar"/>
+                    <ButtonIcon text="Começar"/>
                 </Link>
             </div>    
         </div>
