@@ -1,4 +1,5 @@
 .main-nav {
+    display: flex;
     height: 70px;
     color: #FFF;
     align-items: center;
@@ -8,5 +9,10 @@
 
 }
 .nav-logo-text {
+    white-space: nowrap;
     color: #FFF;
+    width: 248px;
+    height: 32px;
+    left: 41px;
+    top: 15px;
 }
