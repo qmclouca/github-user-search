@@ -1,11 +1,12 @@
 import React from 'react';
-import FormLoader from '../../core/assets/components/FormLoader';
+import Form from '../../core/assets/components/Form';
 import './styles.scss';
 
 const Search = () => (
     <div className="search-form-base"> 
         
-        <h1><FormLoader /></h1>
+        <h1><Form /></h1>
+
     </div>
 );
 
