@@ -45,7 +45,7 @@ const Form = () => {
                     name="name"
                     value={formData.name}
                     type="text" 
-                    className="form-control mb-5"
+                    className="form-control mb-5 "
                     onChange={handleOnChange}
                     placeholder="Usuário Github"
                     />

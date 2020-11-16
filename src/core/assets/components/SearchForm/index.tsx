@@ -10,8 +10,7 @@ type Props = {
 
 const SearchForm = ({title, children}: Props) => {
    return(
-     <div>
-         <rect x="0" y="0" rx="16" ry="16" width="1251" height="270" />
+     <div className = "search-form-container">
          <h1>
              {title}
          </h1>
