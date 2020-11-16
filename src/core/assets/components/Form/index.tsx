@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import FormLoader from '../FormLoader';
 import SearchForm from '../SearchForm';
 import { makeRequest } from '../utils/request';
 import './styles.scss';
@@ -51,7 +50,6 @@ const Form = () => {
                     placeholder="Usuário Github"
                     />
         </SearchForm>
-        <FormLoader />
         </form>
     )
 }

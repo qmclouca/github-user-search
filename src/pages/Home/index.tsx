@@ -5,7 +5,7 @@ import ButtonIcon from './../../core/assets/components/ButtonIcon/index';
 
 const Home = () => (
     <div>
-        <div className = "row">
+        <div className = "row home">
             <div className = "col-6 home-text">
                 <h1 className = "text-title"> 
                     Desafio do Capítulo 3, <br/>
@@ -21,15 +21,12 @@ const Home = () => (
                 Mateusz Wierzbicki: <a href="antforfigma@gmail.com">antforfigma@gmail.com</a>
                 <br/>
                 <br/>
-                </p>
                 <Link to = "/search">
-                    <ButtonIcon text="Começar"/>
+                    <ButtonIcon text="Começar" />
                 </Link>
+                </p>
             </div>    
         </div>
     </div>
-    
-    
-
 );
 export default Home;
