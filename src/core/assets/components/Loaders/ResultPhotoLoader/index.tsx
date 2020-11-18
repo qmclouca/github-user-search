@@ -1,8 +1,11 @@
 import React from "react"
 import ContentLoader from "react-content-loader"
 
+
 {/*lembrar de colocar os props*/}
 const ResultPhotoLoader = () => (
+
+
   <ContentLoader 
     speed={2}
     width={400}
