@@ -53,9 +53,7 @@ return (
                             <div><h1>Localidade:</h1></div>
                             <div><h1>Membro desde:</h1></div>
                         </div>
-                        <Link to = "/search">
-                             <ButtonIcon text="Ver perfil" />
-                        </Link>
+                        
                     </>
                 )}
             </div>
