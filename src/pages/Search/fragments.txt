@@ -1,5 +1,6 @@
-export type person = {
-    name: string;
+    GIT HUB API variables:
+    
+    name?: string;
     avatar_url?: string;
     company?: string;
     blog?: string;
@@ -8,4 +9,3 @@ export type person = {
     followers?: number;
     following?: number;
     created_at?: string;
-}
