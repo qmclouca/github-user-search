@@ -1,9 +1,9 @@
 import React from 'react';
 import './styles.scss';
-import { person } from '../utils/types';
+import { Person } from '../utils/types';
 
 type Props = {
-    person: person; 
+    person: Person; 
 }
 
 const PersonAvatar = ({ person }: Props) => (

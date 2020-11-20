@@ -1,4 +1,8 @@
-export type person = {
+export type PersonResponse = {
+    content: Person[];
+}
+
+export type Person = {
     name: string;
     avatar_url?: string;
     company?: string;

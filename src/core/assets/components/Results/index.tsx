@@ -1,3 +1,4 @@
+import { KeyObject } from 'crypto';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
@@ -7,7 +8,7 @@ import InformationsLoader from '../Loaders/InformationsLoader';
 import ResultPhotoLoader from '../Loaders/ResultPhotoLoader';
 import PersonAvatar from '../PersonAvatar';
 import { makeRequest } from '../utils/request';
-import { person }  from '../utils/types'
+import { Person, PersonResponse }  from '../utils/types'
 import './styles.scss';
 
 type ParamsType = {
@@ -15,15 +16,17 @@ type ParamsType = {
 }
 
 const Results = () => {
+    const [personResponse, setPersonResponse] = useState<PersonResponse>();
     const {login} = useParams<ParamsType>();
     const [isLoading, setIsLoading] = useState(false);
-    const [person, setPerson] = useState<person>();
+   
+    console.log(personResponse);
     
     useEffect(() => {
         setIsLoading(true);
         makeRequest({url:`/${login}`})
-            .then(response => setPerson(response.data))
-            .finally(() => setIsLoading(false));
+            .then(response => setPersonResponse(response.data))
+            //.finally(() => setIsLoading(false));
     }, [login]);
 
 return (
@@ -33,7 +36,10 @@ return (
             {isLoading ? <ResultPhotoLoader /> : (
                 <>
                 <div>
-                    Person Avatar
+                    {personResponse?.content.map(person => 
+                       <Link to="/qmclouca" key={person.name}>
+                           teste
+                       </Link> )}
                 </div> 
                 </>
             )}
@@ -42,9 +48,9 @@ return (
             {isLoading ? <InformationsLoader /> : (
                  <>
                  <div className="first-line-results-data">
-                 <div className="public-repos">Repositórios públicos: {person?.public_repos}</div>
-                 <div className="followers">Seguidores: {person?.followers}</div>
-                 <div className="following">Seguindo: {person?.following}</div>
+                 <div className="public-repos">Repositórios públicos: </div>
+                 <div className="followers">Seguidores: </div>
+                 <div className="following">Seguindo: </div>
                  </div>
                  <div className="informations-card">
                      <h1 className="informations-card-font">Informações</h1>
