@@ -1,4 +1,3 @@
-import { KeyObject } from 'crypto';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
@@ -26,7 +25,7 @@ const Results = () => {
         setIsLoading(true);
         makeRequest({url:`/${login}`})
             .then(response => setPersonResponse(response.data))
-            //.finally(() => setIsLoading(false));
+            .finally(() => setIsLoading(false));
     }, [login]);
 
 return (
@@ -36,10 +35,9 @@ return (
             {isLoading ? <ResultPhotoLoader /> : (
                 <>
                 <div>
-                    {personResponse?.content.map(person => 
-                       <Link to="/qmclouca" key={person.name}>
-                           teste
-                       </Link> )}
+                    <Link to="/qmclouca" key={FormData.name}>
+                        {/*<PersonAvatar />*/} teste
+                    </Link> 
                 </div> 
                 </>
             )}
