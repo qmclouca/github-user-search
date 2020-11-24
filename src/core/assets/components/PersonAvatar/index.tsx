@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles.scss';
-import { Person } from '../utils/types';
+import { Person } from '../types/types';
 
 type Props = {
     person: Person; 

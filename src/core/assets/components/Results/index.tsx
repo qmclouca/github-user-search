@@ -5,10 +5,19 @@ import ButtonIcon from '../ButtonIcon';
 import ButtonLoader from '../Loaders/ButtonLoader';
 import InformationsLoader from '../Loaders/InformationsLoader';
 import ResultPhotoLoader from '../Loaders/ResultPhotoLoader';
-import PersonAvatar from '../PersonAvatar';
 import { makeRequest } from '../utils/request';
-import { Person, PersonResponse }  from '../utils/types'
+import { Person, PersonResponse }  from '../types/types'
 import './styles.scss';
+
+type Props = {
+    person: Person;
+}
+
+const PersonAvatar = ({ person }: Props) => (
+    <div className = "card-base border-radius-10 product-card">
+       <img src={person.avatar_url} alt={person.name} className="product-card-image"/>
+    </div>
+);
 
 type ParamsType = {
     login: string;
@@ -32,15 +41,7 @@ return (
 <div className="search-results-base">
     <div className="row">
         <div className="col-3 search-results-photo align-self-start">
-            {isLoading ? <ResultPhotoLoader /> : (
-                <>
-                <div>
-                    <Link to="/qmclouca" key={FormData.name}>
-                        {/*<PersonAvatar />*/} teste
-                    </Link> 
-                </div> 
-                </>
-            )}
+           
         </div>
         <div className="col-8 search-results-info align-self-start">
             {isLoading ? <InformationsLoader /> : (
