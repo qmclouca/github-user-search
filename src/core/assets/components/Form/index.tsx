@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SearchForm from '../SearchForm';
 import { makeRequest } from '../utils/request';
 import './styles.scss';
+import '../types/types'
 
 type FormState = {
     name: string;

@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 import ButtonIcon from '../ButtonIcon';
 import ButtonLoader from '../Loaders/ButtonLoader';
 import InformationsLoader from '../Loaders/InformationsLoader';
-import ResultPhotoLoader from '../Loaders/ResultPhotoLoader';
+
 import { makeRequest } from '../utils/request';
 import { Person, PersonResponse }  from '../types/types'
 import './styles.scss';
+import PersonDetails from './../PersonDetails/index';
 
 type Props = {
     person: Person;
@@ -20,22 +21,22 @@ const PersonAvatar = ({ person }: Props) => (
 );
 
 type ParamsType = {
-    login: string;
+    name: string;
 }
 
 const Results = () => {
     const [personResponse, setPersonResponse] = useState<PersonResponse>();
-    const {login} = useParams<ParamsType>();
+    const {name} = useParams<ParamsType>();
     const [isLoading, setIsLoading] = useState(false);
    
-    console.log(personResponse);
     
     useEffect(() => {
         setIsLoading(true);
-        makeRequest({url:`/${login}`})
-            .then(response => setPersonResponse(response.data))
+        
+        makeRequest({url:`/${name}`})
+            .then(personResponse => setPersonResponse(personResponse.data))
             .finally(() => setIsLoading(false));
-    }, [login]);
+    }, [name]);
 
 return (
 <div className="search-results-base">
@@ -45,20 +46,7 @@ return (
         </div>
         <div className="col-8 search-results-info align-self-start">
             {isLoading ? <InformationsLoader /> : (
-                 <>
-                 <div className="first-line-results-data">
-                 <div className="public-repos">Repositórios públicos: </div>
-                 <div className="followers">Seguidores: </div>
-                 <div className="following">Seguindo: </div>
-                 </div>
-                 <div className="informations-card">
-                     <h1 className="informations-card-font">Informações</h1>
-                     <div className="info">Empresa:</div>
-                     <div className="info">Website/Blog:</div>
-                     <div className="info">Localidade:</div>
-                     <div className="info">Membro desde:</div>
-                 </div>
-                 </>
+                 <PersonDetails />
             )}
         </div>
     </div>
@@ -74,4 +62,4 @@ return (
 </div>
 );}
 
-export default Results
+export default Results;
