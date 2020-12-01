@@ -46,9 +46,12 @@ return (
         </div>
         <div className="col-8 search-results-info align-self-start">
             {isLoading ? <InformationsLoader /> : (
-                 <PersonDetails />
+                <PersonDetails />
+                
             )}
         </div>
+
+
     </div>
     <div className="row">
         <div className="search-results-button col-2 align-self-end">

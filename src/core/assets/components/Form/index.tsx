@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import SearchForm from '../SearchForm';
-import { makeRequest } from '../utils/request';
 import './styles.scss';
 import '../types/types'
+import { makeRequest } from '../utils/request';
 
 type FormState = {
     name: string;
@@ -23,9 +23,19 @@ const Form = () => {
 
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+        const payload = {
+            ...formData,
+            login: [{id: formData.name}]
+        }
+        makeRequest({url:'/', method:'POST', data: payload})
+            .then(() => {
+                setFormData({
+                    name: '',
+                });
+            });
         console.log(formData);
     }
- 
+    
     return (
         <form onSubmit={handleSubmit}>
         <SearchForm title="Encontre um perfil Github">
@@ -43,3 +53,4 @@ const Form = () => {
 }
 
 export default Form;
+
